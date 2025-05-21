@@ -1,103 +1,147 @@
-import Image from "next/image";
+import React from "react";
+import type { JSX } from "react";
+import Header from "@/components/header";
 
-export default function Home() {
+export default function About(): JSX.Element {
+  // Personal information
+  const about = [
+    { label: "SAKINAH BINTI JUSOH" },
+    { label: "FROM TERENGGANU" },
+    { label: "2 MARCH 2003" },
+    { label: "INTERNSHIP STUDENT" },
+  ];
+
+  // Education
+  const education = [
+    {
+      institution: "UNIVERSITI MALAYSIA TERENGGANU",
+      period: "2022 - Present",
+      degree: "Bachelor of Computer Science ( Mobile Computing ) with Honor",
+      image: "/Images/umt.jpeg",
+    },
+    {
+      institution: "KOLEJ MATRIKULASI PAHANG",
+      period: "2021-2022",
+      degree: "Science ( Physical Science )",
+      image: "/Images/matrik.jpeg",
+    },
+  ];
+
+  // Skills
+  const skills = [
+    {
+      title: "PROGRAMMING & DEVELOPMENT",
+      description:
+        "Java, HTML, CSS, Javascript, React.js, Flutter, TailwindCSS",
+    },
+    {
+      title: "DESIGN & CREATIVE TOOLS",
+      description: "Adobe Photoshop, Canva, Figma, Capcut",
+    },
+    {
+      title: "COMMUNICATION",
+      description: "",
+    },
+    {
+      title: "TEAMWORK AND COLLABORATION",
+      description: "",
+    },
+    {
+      title: "ADAPTABLE AND FLEXIBLE",
+      description: "",
+    },
+  ];
+
+  // Others information
+  const personal = [
+    {
+      title: "CHAGEE LOVER",
+      src: "",
+    },
+    {
+      title: "TRAVELER",
+      src: "",
+    },
+    {
+      title: "HAPPY GO LUCKY",
+      src: "",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="relative w-full max-w-[1550px] mx-auto bg-[#f7f6eb] overflow-hidden">
+      <Header />
+      {/* About Me */}
+      <div className="w-full h-[654px] flex">
+        <div className="w-[950px] p-[70px] flex flex-col">
+          <h2 className="font-bold text-3xl text-[#f683a0] leading-[30px] mb-8">
+            ABOUT ME
+          </h2>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="flex flex-col gap-8">
+            {about.map((info, index) => (
+              <h3
+                key={index}
+                className="font-semibold text-[40px] text-black leading-10 whitespace-nowrap overflow-hidden text-ellipsis"
+              >
+                {info.label}
+              </h3>
+            ))}
+          </div>
+
+          <button className="w-[337px] h-[79px] mt-8 bg-[#e0d976] rounded-2xl hover:bg-[#d5ce6a]">
+            <span className="font-semibold text-xl text-black">
+              SAKINAH'S JUSOH RESUME
+            </span>
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        <div className="relative w-[490px]">
+          <img
+            className="w-full h-[654px] object-cover"
+            src="/Images/about me.jpeg"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </div>
+      </div>
+
+      {/* Decorative bar */}
+      <div className="w-full h-[50px] bg-[#f683a0] flex items-center">
+        {Array(11)
+          .fill(0)
+          .map((_, index) => (
+            <div key={index} className="w-5 h-5 mx-2" />
+          ))}
+      </div>
+
+      {/* Education */}
+      {education.map((edu, index) => (
+        <div
+          key={index}
+          className={`flex w-full ${index % 2 === 0 ? "" : "flex-row-reverse"}`}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="w-1/2">
+            <img className="w-full h-[433px] object-cover" src={edu.image} />
+          </div>
+
+          <div className="w-1/2 p-12 flex flex-col justify-center">
+            {index === 0 && (
+              <h2 className="font-bold text-3xl text-[#f683a0] leading-[30px] mb-4 text-right">
+                EDUCATION
+              </h2>
+            )}
+
+            <h3 className="font-bold text-[32px] text-black mb-4">
+              {edu.institution}
+            </h3>
+
+            <p className="font-semibold text-xl text-black">{edu.period}</p>
+
+            <p className="font-semibold text-xl text-black mt-4">
+              {edu.degree}
+            </p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
