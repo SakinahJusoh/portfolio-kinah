@@ -12,8 +12,8 @@ const Header = () => {
   console.log(pathName);
 
   const Menu = [
-    { label: "ABOUT ME", href: "#" },
-    { label: "PROJECTS", href: "#" },
+    { label: "ABOUT ME", href: "/" },
+    { label: "PROJECTS", href: "/project" },
   ];
 
   return (
