@@ -6,11 +6,6 @@ const Footer = () => {
       image: "/Images/telephone.png",
       text: "+6011-17757315",
     },
-    {
-      image: "/Images/briefcase.png",
-      text: "Sakinah Jusoh's Resume",
-      link: "/Resume Sakinah.pdf",
-    },
   ];
 
   return (
@@ -25,10 +20,10 @@ const Footer = () => {
         </div>
 
         <div className="absolute ml-58 mt-8">
-          <div className="flex items-center text-black">
+          <div className="flex items-center text-black ml-82">
             <img src="/Images/mail.png" alt="email" className="w-5 h-5 mr-2" />
 
-            <span className="[font-family: 'Poppins-Medium'] font-semibold text-md leading-[21px]">
+            <span className="[font-family: 'Poppins-Medium'] font-semibold text-lg leading-6 ml-2 ">
               sakinah.jusoh@time.com.my
             </span>
           </div>
@@ -36,31 +31,17 @@ const Footer = () => {
 
         <div className="flex flex-col gap-4">
           {contact.map((item, index) => (
-            <div
-              key={index}
-              className="flex items-center text-[#00000080] mt-2"
-            >
-              <img src={item.image} alt="icon" className="w-5 h-5 mr-3" />
+            <div key={index} className="flex items-center text-black mt-8">
+              <img src={item.image} alt="icon" className="w-5 h-5 mr-2" />
 
-              {item.link ? (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="[font-family: 'Poppins-Medium'] font-medium text-sm leading-[21px] mr-24"
-                >
-                  {item.text}
-                </a>
-              ) : (
-                <span className="[font-family: 'Poppins-Medium'] font-medium text-sm leading-[21px]">
-                  {item.text}
-                </span>
-              )}
+              <span className="[font-family: 'Poppins-Medium'] font-semibold text-sm leading-[21px] mr-40">
+                {item.text}
+              </span>
             </div>
           ))}
         </div>
       </div>
-
+      <div className="w-[1500px] h-px top-18 left-[-40px] absolute bg-black" />
       <div className="w-full p-1 flex items-center mt-6">
         <div className="flex items-center  ">
           <img

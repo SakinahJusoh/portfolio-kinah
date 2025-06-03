@@ -1,46 +1,62 @@
 "use client";
-
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { Instagram, Linkedin } from "lucide-react";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
 
   console.log(pathName);
 
   const Menu = [
-    { label: "ABOUT ME", href: "/" },
-    { label: "PROJECTS", href: "/project" },
+    { label: "SKILLS", href: "#skills" },
+    { label: "PROJECT", href: "#project" },
+    { label: "EDUCATION", href: "#education" },
+    { label: "PERSONAL SNAPSHOT", href: "#personal" },
+  ];
+
+  const socialMedia = [
+    {
+      icon: <Instagram className="w-[30px] h-[30px]" />,
+      link: "https://www.instagram.com",
+    },
+    {
+      icon: <Linkedin className="w-[30px] h-[30px]" />,
+      link: "https://www.linkedin.com",
+    },
   ];
 
   return (
-    <header className="w-full h-[98px] bg-[#f683a0] flex items-center justify-between px-10">
-      <h1 className="font-bold text-[40px] text-[#f7f6eb] leading-10">
+    <header className="fixed top-0 left-0 z-50 w-full h-[98px] bg-[#f683a0] flex items-center justify-between px-10 border border-black">
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="font-bold text-4xl text-[#f7f6eb] leading-10"
+      >
         SAKINAH
-      </h1>
+      </button>
 
-      <nav className="flex items-center gap-8">
+      <nav className="flex items-center gap-10">
         {Menu.map((item, index) => (
-          <a
+          <button
             key={index}
-            href={item.href}
-            className="font-semibold text-xl leading-5 text-black"
+            onClick={() => {
+              const section = document.querySelector(item.href);
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="font-semibold text-xl leading-5 text-[#f7f6eb]"
           >
             {item.label}
-          </a>
+          </button>
         ))}
       </nav>
 
-      <div className="flex items-center gap-4">
-        <a href="#" aria-label="Instagram">
-          <Instagram className="w-[30px] h-[30px]" />
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <Linkedin className="w-[30px] h-[30px]" />
-        </a>
+      <div className="flex flex-row items-center gap-4 text-[#f7f6eb]">
+        {socialMedia.map((social, index) => (
+          <a key={index} href={social.link} target="_blank">
+            {social.icon}
+          </a>
+        ))}
       </div>
     </header>
   );
