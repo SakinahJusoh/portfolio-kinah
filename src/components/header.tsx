@@ -1,6 +1,5 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { Instagram, Linkedin } from "lucide-react";
 
 const Header = () => {
   const pathName = usePathname();
@@ -16,11 +15,11 @@ const Header = () => {
 
   const socialMedia = [
     {
-      icon: <Instagram className="w-[30px] h-[30px]" />,
+      image: "/Images/instagram.svg",
       link: "https://www.instagram.com",
     },
     {
-      icon: <Linkedin className="w-[30px] h-[30px]" />,
+      image: "/Images/linkedin.svg",
       link: "https://www.linkedin.com",
     },
   ];
@@ -53,8 +52,13 @@ const Header = () => {
 
       <div className="flex flex-row items-center gap-4 text-[#f7f6eb]">
         {socialMedia.map((social, index) => (
-          <a key={index} href={social.link} target="_blank">
-            {social.icon}
+          <a
+            key={index}
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={social.image} width={30} height={30} />
           </a>
         ))}
       </div>
