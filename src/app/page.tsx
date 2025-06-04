@@ -65,7 +65,7 @@ export default async function About() {
             <a href="/Resume Sakinah.pdf" target="_blank">
               <button className="w-[290px] h-[51px] bg-[#e0d976] text-black rounded-3xl border border-solid border-black hover:bg-[#d5ce6c] flex items-center justify-center gap-2 mt-8">
                 <span className="[font-family: 'Playfair_Display-SemiBold', Helvetica] font-semibold text-xs text-black">
-                  DOWNLOAD SAKINAH'S RESUME
+                  DOWNLOAD SAKINAH&apos;S RESUME
                 </span>
                 <img src="/Images/download.svg" className="w-5 h-5" />
               </button>
